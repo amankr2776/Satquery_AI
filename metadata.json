@@ -1,0 +1,8 @@
+{
+  "name": "SatQuery AI",
+  "description": "A dual-persona geospatial intelligence platform delivering precise satellite analysis for professionals and accessible insights for the public.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,334 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-primary: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-display: "Instrument Serif", Georgia, serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    
+    /* Deep Aubergine + Ice Silver + Marigold Theme Default */
+    --bg-page: #130A1D;
+    --bg-card: #1D0E2E;
+    --bg-elevated: #26133B;
+    --border-subtle: rgba(226, 232, 240, 0.12);
+    --border-strong: rgba(226, 232, 240, 0.25);
+    --text-primary: #F1F5F9;
+    --text-secondary: #CBD5E1;
+    --text-tertiary: #94A3B8;
+    
+    --accent-marigold: #F59E0B;
+    --accent-marigold-bright: #FFB000;
+    --accent-marigold-dark: #D97706;
+    --ice-silver: #E2E8F0;
+    --ice-silver-subtle: rgba(226, 232, 240, 0.08);
+    --deep-aubergine: #130A1D;
+    --deep-aubergine-card: #1C0F2B;
+    
+    --accent-green: #10B981;
+    --accent-blue: #3B82F6;
+    --accent-cyan: #06B6D4;
+    --accent-orange: #F59E0B;
+    --accent-red: #EF4444;
+  }
+
+  [data-theme="light"] {
+    --bg-page: #F8FAFC;
+    --bg-card: #FFFFFF;
+    --bg-elevated: #F1F5F9;
+    --border-subtle: #E2E8F0;
+    --border-strong: #CBD5E1;
+    --text-primary: #130A1D;
+    --text-secondary: #334155;
+    --text-tertiary: #64748B;
+    --accent-marigold: #D97706;
+    --accent-marigold-bright: #F59E0B;
+    --accent-marigold-dark: #B45309;
+    --ice-silver: #475569;
+    --ice-silver-subtle: rgba(71, 85, 105, 0.08);
+    --deep-aubergine: #130A1D;
+    --deep-aubergine-card: #F1F5F9;
+  }
+
+  body {
+    font-family: var(--font-primary);
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Ice Silver Glassmorphism Surface */
+.glass-ice-silver {
+  background: rgba(226, 232, 240, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.16);
+  box-shadow: 0 12px 40px -8px rgba(19, 10, 29, 0.5), inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="light"] .glass-ice-silver {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid #CBD5E1;
+  box-shadow: 0 4px 24px -2px rgba(19, 10, 29, 0.08);
+}
+
+.glass-ice-silver-hover {
+  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-ice-silver-hover:hover {
+  background: rgba(226, 232, 240, 0.1);
+  border-color: rgba(245, 158, 11, 0.4);
+  box-shadow: 0 16px 48px -8px rgba(19, 10, 29, 0.6), 0 0 20px -4px rgba(245, 158, 11, 0.25);
+}
+
+[data-theme="light"] .glass-ice-silver-hover:hover {
+  background: #FFFFFF;
+  border-color: #F59E0B;
+  box-shadow: 0 8px 30px -4px rgba(245, 158, 11, 0.25);
+}
+
+.glass-ice-silver-active {
+  background: rgba(226, 232, 240, 0.14);
+  border-color: #F59E0B;
+  box-shadow: 0 0 24px -2px rgba(245, 158, 11, 0.35);
+}
+
+[data-theme="light"] .glass-ice-silver-active {
+  background: #FFFFFF;
+  border-color: #F59E0B;
+  box-shadow: 0 0 20px -2px rgba(245, 158, 11, 0.3);
+}
+
+/* Atmospheric Glows & Gradients for Marigold & Deep Aubergine */
+.glow-marigold {
+  box-shadow: 0 0 25px -3px rgba(245, 158, 11, 0.45);
+}
+
+.glow-aubergine {
+  box-shadow: 0 0 35px 5px rgba(29, 14, 46, 0.8);
+}
+
+.aubergine-gradient {
+  background: radial-gradient(circle at 50% 15%, rgba(42, 22, 63, 0.7) 0%, rgba(29, 14, 46, 0.9) 45%, rgba(19, 10, 29, 1) 100%);
+}
+
+.marigold-gradient-btn {
+  background: linear-gradient(135deg, #FFB000 0%, #F59E0B 50%, #D97706 100%);
+  color: #130A1D;
+  font-weight: 700;
+  box-shadow: 0 4px 20px -2px rgba(245, 158, 11, 0.4);
+  transition: all 200ms ease-out;
+}
+.marigold-gradient-btn:hover {
+  box-shadow: 0 6px 28px 0 rgba(245, 158, 11, 0.6);
+  transform: translateY(-1px);
+}
+
+/* Custom Utilities for SatQuery AI Design System */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+@keyframes slideUpFade {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideLeftFade {
+  0% { opacity: 0; transform: translateX(12px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.animate-slide-up {
+  opacity: 0;
+  animation: slideUpFade 600ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-left {
+  opacity: 0;
+  animation: slideLeftFade 500ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.tabular-numeric {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+/* Atmospheric Glows & Gradients */
+.glow-cyan {
+  box-shadow: 0 0 25px -4px rgba(6, 182, 212, 0.4);
+}
+
+.glow-green {
+  box-shadow: 0 0 25px -4px rgba(34, 197, 94, 0.35);
+}
+
+.glow-blue {
+  box-shadow: 0 0 25px -4px rgba(59, 130, 246, 0.35);
+}
+
+.aurora-gradient {
+  background: radial-gradient(circle at 50% 20%, rgba(6, 182, 212, 0.15) 0%, rgba(59, 130, 246, 0.08) 40%, rgba(10, 15, 28, 0) 70%);
+}
+
+.radar-sweep {
+  background: conic-gradient(from 0deg at 50% 50%, rgba(6, 182, 212, 0.3) 0deg, rgba(6, 182, 212, 0) 60deg);
+  animation: sweep 4s linear infinite;
+}
+
+@keyframes sweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Custom Scrollbar for Mission Control & Data Panels */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(10, 15, 28, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: #263045;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3A4760;
+}
+
+/* ================= SECTION 21 — ANIMATION SYSTEM & TOKENS ================= */
+@keyframes deceleratedFadeIn {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes springSoftIn {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes chartGrowVertical {
+  0% { transform: scaleY(0); }
+  100% { transform: scaleY(1); }
+}
+
+@keyframes chartGrowHorizontal {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
+@keyframes fillDece {
+  0% { width: 0%; }
+}
+
+/* Page transition token */
+.animate-page-transition {
+  animation: deceleratedFadeIn 320ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Card hover tokens */
+.hover-card-trigger {
+  transition: transform 240ms cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 240ms cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 240ms ease;
+}
+.hover-card-trigger:hover {
+  transform: scale(1.015);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* Sidebar soft spring sliding pills */
+.animate-sidebar-pill {
+  transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+/* Chart bars token */
+.animate-chart-grow {
+  transform-origin: bottom;
+  animation: chartGrowVertical 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-chart-grow-horizontal {
+  transform-origin: left;
+  animation: chartGrowHorizontal 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Confidence fill bar deceleration */
+.animate-confidence-fill {
+  animation: fillDece 1200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Modal spring-soft intro token */
+.animate-modal-intro {
+  animation: springSoftIn 320ms cubic-bezier(0.175, 0.885, 0.32, 1.15) forwards;
+}
+
+/* Tab switch fade token */
+.animate-tab-fade {
+  animation: deceleratedFadeIn 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Theme toggle cross-fade + glow glow */
+.theme-toggle-glow {
+  transition: all 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ================= SECTION 22 — ACCESSIBILITY FOCUS RING DESIGN & CONTRAST ================= */
+/* Focus outline styling with visible rings and 2px offset */
+*:focus-visible {
+  outline: 2px solid #10b981 !important;
+  outline-offset: 2px !important;
+  transition: outline-color 120ms ease, outline-width 120ms ease;
+}
+
+/* Screen readers support class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ================= SECTION 21.2 — PREFERS REDUCED MOTION SAFEGUARDS ================= */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: scroll !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0ms !important;
+    transition-delay: 0ms !important;
+    transform: none !important;
+  }
+  
+  /* Retain simple opacity fade transitions only */
+  .animate-page-transition, .animate-tab-fade, .animate-modal-intro, .animate-slide-up {
+    animation: deceleratedFadeIn 1ms linear forwards !important;
+    transform: none !important;
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
