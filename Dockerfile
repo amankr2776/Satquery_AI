@@ -1,22 +1,25 @@
 # Use Node.js 20 as the base image
 FROM node:20-alpine
 
-# Install Bun globally (since you have a bun.lock file)
+# Install Alpine C library compatibility layers required for Bun musl runtime
+RUN apk add --no-cache libc6-compat gcompat libstdc++
+
+# Install Bun globally
 RUN npm install -g bun
 
 WORKDIR /usr/src/app
 
 # Copy package files
-COPY package.json bun.lock ./
+COPY package.json bun.lock* package-lock.json* ./
 
-# Install dependencies using Bun
-RUN bun install
+# Install dependencies using Bun with fallback
+RUN bun install || npm install
 
 # Copy the rest of your application code
 COPY . .
 
 # Build the app (runs vite build and esbuild)
-RUN bun run build
+RUN bun run build || npm run build
 
 # Expose the port (Express defaults to 3000)
 EXPOSE 3000
