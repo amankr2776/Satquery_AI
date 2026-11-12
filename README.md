@@ -1,5 +1,7 @@
 <div align="center">
 
+[![Docker Build](https://github.com/amankr2776/Satquery_AI/actions/workflows/docker-build.yml/badge.svg)](https://github.com/amankr2776/Satquery_AI/actions/workflows/docker-build.yml)
+
 <img src="./assets/satquery-banner.svg" alt="SatQuery AI Mission Control Banner" width="100%" />
 
 <br/>
