@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" width="100%" height="100%" style="background:#0a0512; border-radius:16px; overflow:hidden; font-family:'JetBrains Mono','Courier New',monospace;">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#1e0b36" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#120722" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#07020d" stop-opacity="1"/>
+    </radialGradient>
+
+    <!-- Radar Glow Gradient -->
+    <radialGradient id="radarSweep" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.4"/>
+      <stop offset="60%" stop-color="#ff8c00" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Logo Text Glow -->
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffaa40"/>
+      <stop offset="35%" stop-color="#ff8c00"/>
+      <stop offset="70%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+
+    <!-- Scanline Pattern -->
+    <pattern id="scanlines" width="100" height="4" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="100" y2="0" stroke="#2dd4bf" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#6366f1" stroke-opacity="0.07" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <style>
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; transform: scale(0.98); }
+      50% { opacity: 0.85; transform: scale(1.02); }
+    }
+    @keyframes ping {
+      0% { r: 4px; opacity: 1; }
+      100% { r: 24px; opacity: 0; }
+    }
+    @keyframes orbit {
+      from { transform: rotate(0deg) translateX(110px) rotate(0deg); }
+      to { transform: rotate(360deg) translateX(110px) rotate(-360deg); }
+    }
+    @keyframes textGlow {
+      0%, 100% { filter: drop-shadow(0 0 8px rgba(255,140,0,0.6)); }
+      50% { filter: drop-shadow(0 0 18px rgba(45,212,191,0.8)); }
+    }
+    @keyframes blip {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+    .radar-beam {
+      transform-origin: 790px 150px;
+      animation: spin 6s linear infinite;
+    }
+    .radar-pulse-ring {
+      transform-origin: 790px 150px;
+      animation: pulse 3s ease-in-out infinite;
+    }
+    .satellite-orbit {
+      transform-origin: 790px 150px;
+      animation: orbit 9s linear infinite;
+    }
+    .ping-circle {
+      animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+    .glitch-title {
+      animation: textGlow 4s ease-in-out infinite;
+    }
+    .telemetry-blip {
+      animation: blip 2s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- Deep Cosmic Background -->
+  <rect width="960" height="300" fill="url(#bgGrad)"/>
+  <rect width="960" height="300" fill="url(#grid)"/>
+  <rect width="960" height="300" fill="url(#scanlines)"/>
+
+  <!-- Border Frame / HUD Lines -->
+  <rect x="12" y="12" width="936" height="276" rx="10" fill="none" stroke="#ff8c00" stroke-opacity="0.25" stroke-width="1.5"/>
+  <path d="M 12 40 L 40 12 M 948 40 L 920 12 M 12 260 L 40 288 M 948 260 L 920 288" stroke="#2dd4bf" stroke-width="2" stroke-opacity="0.8"/>
+
+  <!-- Top Status Bar -->
+  <text x="35" y="32" fill="#2dd4bf" font-size="10" letter-spacing="2" font-weight="700">● LIVE CONSTELLATION LINK</text>
+  <text x="250" y="32" fill="#94a3b8" font-size="10" letter-spacing="1">BAND: C/L-BAND SAR &amp; MSI VNIR</text>
+  <text x="540" y="32" fill="#ff8c00" font-size="10" letter-spacing="1">ORBIT ALT: 693 KM</text>
+  <text x="730" y="32" fill="#10b981" font-size="10" letter-spacing="2">SYS: FULLY OPERATIONAL</text>
+
+  <!-- Left Side: Cinematic SatQuery AI Title & Badges -->
+  <g transform="translate(45, 75)">
+    <!-- Mission Badge -->
+    <rect x="0" y="0" width="220" height="22" rx="4" fill="#ff8c00" fill-opacity="0.12" stroke="#ff8c00" stroke-opacity="0.4" stroke-width="1"/>
+    <circle cx="12" cy="11" r="4" fill="#ff8c00" class="telemetry-blip"/>
+    <text x="24" y="15" fill="#ffaa40" font-size="10" font-weight="700" letter-spacing="1.5">SATQUERY INTELLIGENCE</text>
+
+    <!-- Main Title -->
+    <g class="glitch-title">
+      <text x="0" y="70" fill="url(#textGrad)" font-size="46" font-weight="900" letter-spacing="3" font-family="'JetBrains Mono', 'Arial Black', sans-serif">
+        SATQUERY AI
+      </text>
+    </g>
+
+    <!-- Subtitle -->
+    <text x="0" y="98" fill="#e2e8f0" font-size="14" font-weight="600" letter-spacing="1">
+      Next-Gen Earth Observation &amp; SAR-Optical Fusion
+    </text>
+    <text x="0" y="118" fill="#94a3b8" font-size="11" font-weight="400" letter-spacing="0.5">
+      Seeing Through Cloud Decks • Specular Radar Backscatter • Conformal Coverage
+    </text>
+
+    <!-- HUD Stats Pill Row -->
+    <g transform="translate(0, 142)">
+      <!-- Pill 1: Radar -->
+      <rect x="0" y="0" width="145" height="26" rx="6" fill="#1e1035" stroke="#2dd4bf" stroke-opacity="0.5" stroke-width="1"/>
+      <text x="12" y="17" fill="#2dd4bf" font-size="10" font-weight="700">🛰️ SENTINEL-1/2</text>
+
+      <!-- Pill 2: NISAR -->
+      <rect x="155" y="0" width="130" height="26" rx="6" fill="#1e1035" stroke="#ff8c00" stroke-opacity="0.5" stroke-width="1"/>
+      <text x="167" y="17" fill="#ffaa40" font-size="10" font-weight="700">📡 NISAR L-BAND</text>
+
+      <!-- Pill 3: VLM -->
+      <rect x="295" y="0" width="150" height="26" rx="6" fill="#1e1035" stroke="#a855f7" stroke-opacity="0.5" stroke-width="1"/>
+      <text x="307" y="17" fill="#c084fc" font-size="10" font-weight="700">⚡ MULTIMODAL AI</text>
+
+      <!-- Pill 4: License -->
+      <rect x="455" y="0" width="105" height="26" rx="6" fill="#1e1035" stroke="#10b981" stroke-opacity="0.5" stroke-width="1"/>
+      <text x="467" y="17" fill="#34d399" font-size="10" font-weight="700">⚖️ MIT LICENSED</text>
+    </g>
+  </g>
+
+  <!-- Right Side: Animated Orbital Radar & Satellite Constellation -->
+  <g transform="translate(790, 150)">
+    <!-- Concentric Target Circles -->
+    <circle cx="0" cy="0" r="115" fill="none" stroke="#6366f1" stroke-opacity="0.15" stroke-width="1" stroke-dasharray="4,4"/>
+    <circle cx="0" cy="0" r="85" fill="none" stroke="#2dd4bf" stroke-opacity="0.25" stroke-width="1"/>
+    <circle cx="0" cy="0" r="55" fill="none" stroke="#ff8c00" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="6,3"/>
+    <circle cx="0" cy="0" r="25" fill="#ff8c00" fill-opacity="0.08" stroke="#ff8c00" stroke-opacity="0.5" stroke-width="1.5"/>
+
+    <!-- Crosshair axes -->
+    <line x1="-125" y1="0" x2="125" y2="0" stroke="#2dd4bf" stroke-opacity="0.3" stroke-width="1"/>
+    <line x1="0" y1="-125" x2="0" y2="125" stroke="#2dd4bf" stroke-opacity="0.3" stroke-width="1"/>
+
+    <!-- Center Globe Core -->
+    <circle cx="0" cy="0" r="10" fill="#2dd4bf" fill-opacity="0.9"/>
+    <circle cx="0" cy="0" r="18" fill="none" stroke="#2dd4bf" stroke-width="1.5" class="ping-circle"/>
+
+    <!-- Radar Sweep Beam (Rotating) -->
+    <g class="radar-beam">
+      <path d="M 0 0 L 115 -25 A 115 115 0 0 1 115 25 Z" fill="url(#radarSweep)"/>
+      <line x1="0" y1="0" x2="115" y2="0" stroke="#2dd4bf" stroke-width="2" stroke-opacity="0.9"/>
+    </g>
+
+    <!-- Detected Radar Blip 1 -->
+    <circle cx="45" cy="-35" r="4" fill="#ff8c00" class="telemetry-blip"/>
+    <text x="52" y="-32" fill="#ffaa40" font-size="8" font-weight="700">TGT-01</text>
+
+    <!-- Detected Radar Blip 2 -->
+    <circle cx="-50" cy="40" r="3.5" fill="#10b981" class="telemetry-blip"/>
+    <text x="-45" y="52" fill="#34d399" font-size="8" font-weight="700">COH-98%</text>
+
+    <!-- Orbiting Satellite Indicator -->
+    <g class="satellite-orbit">
+      <circle cx="0" cy="0" r="6" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5"/>
+      <path d="M -9 -3 L -4 -3 L -4 3 L -9 3 Z M 4 -3 L 9 -3 L 9 3 L 4 3 Z" fill="#38bdf8"/>
+    </g>
+  </g>
+
+  <!-- Bottom Coordinate Telemetry Footer -->
+  <g transform="translate(35, 275)">
+    <text x="0" y="0" fill="#64748b" font-size="9" letter-spacing="1">
+      LAT: 10°51'01.8"N  |  LON: 76°16'15.9"E  |  GRID: WGS84 / EPSG:32643  |  CO-REGISTRATION TOLERANCE: &lt; 0.12 PX  |  FUSION CONFIDENCE: 98.7%
+    </text>
+  </g>
+</svg>
